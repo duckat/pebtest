@@ -8,7 +8,7 @@ void main_window_load(Window *window){
   Layer *window_layer = window_get_root_layer(window);
   
   mainTitleText = text_layer_create(GRect(0, 0, 144, 168));
-  text_layer_set_text(mainTitleText, "Main window!");
+  text_layer_set_text(mainTitleText, "Menu\n\n\n\n\nCheck Balance\n\n\n\nNearest ATM");
   text_layer_set_text_alignment(mainTitleText, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(mainTitleText));
 }
