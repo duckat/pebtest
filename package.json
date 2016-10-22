@@ -1,0 +1,21 @@
+{
+    "author": "anthonysunghoonkim@gmail.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "test1",
+    "pebble": {
+        "displayName": "test1",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "uuid": "140862c0-5447-4504-a65c-b82c01736218",
+        "watchapp": {
+            "watchface": false
+        }
+    },
+    "version": "1.0.0"
+}
