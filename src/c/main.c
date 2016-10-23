@@ -4,6 +4,10 @@
 #include "balanceWindow.h"
 #include "atmWindow.h"
 
+int PEBBLE_CODE_LOGGED_IN = 0;
+int PEBBLE_CODE_SELECTION = 1;
+int PEBBLE_CODE_IMAGE_URL = 2;
+
 int logged_in = true;
 // void launch_main_window(void *data){
 
@@ -24,14 +28,63 @@ void up_click_handler(ClickRecognizerRef recognizer, void *context)
 {
   
 }
+
 void down_click_handler(ClickRecognizerRef recognizer, void *context)
 {
+  // Declare the dictionary's iterator
+  DictionaryIterator *out_iter;
+
+  // Prepare the outbox buffer for this message
+  AppMessageResult result = app_message_outbox_begin(&out_iter);
+
+  if(result == APP_MSG_OK) {
+    // Add an item to ask for weather data
+    int value = 1;
+    dict_write_int(out_iter, PEBBLE_CODE_SELECTION, &value, sizeof(int), true);
+
+    // Send this message
+    result = app_message_outbox_send();
+
+    // Check the result
+    if(result != APP_MSG_OK) {
+      APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending the outbox: %d", (int)result);
+    }
+
+  } else {
+    // The outbox cannot be used right now
+    APP_LOG(APP_LOG_LEVEL_ERROR, "Error preparing the outbox: %d", (int)result);
+  }
+
   launch_atm_window(NULL);
 }
 
 void select_click_handler(ClickRecognizerRef recognizer, void *context)
 {
-    launch_balance_window(NULL);
+  // Declare the dictionary's iterator
+  DictionaryIterator *out_iter;
+
+  // Prepare the outbox buffer for this message
+  AppMessageResult result = app_message_outbox_begin(&out_iter);
+
+  if(result == APP_MSG_OK) {
+    // Add an item to ask for weather data
+    int value = 0;
+    dict_write_int(out_iter, PEBBLE_CODE_SELECTION, &value, sizeof(int), true);
+
+    // Send this message
+    result = app_message_outbox_send();
+
+    // Check the result
+    if(result != APP_MSG_OK) {
+      APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending the outbox: %d", (int)result);
+    }
+
+  } else {
+    // The outbox cannot be used right now
+    APP_LOG(APP_LOG_LEVEL_ERROR, "Error preparing the outbox: %d", (int)result);
+  }
+  
+  launch_balance_window(NULL);
 }
 //subscribes each button to a handler
 void click_config_provider(void *context)
@@ -53,18 +106,37 @@ void start_main_window() {
     window_stack_push(main_window_get_window(), true);
 }
 
-static void in_received_handler(DictionaryIterator *iter, void *context) 
+static void inbox_received_callback(DictionaryIterator *iter, void *context) 
 {
-    Tuple *t = dict_read_first(iter);
-    if(t)
-    {
-        start_main_window();
+    Tuple *t = dict_find(iter);
+    if (t) {
+      //
     }
+}
+
+static void inbox_dropped_callback(AppMessageResult reason, void *context) {
+  // A message was received, but had to be dropped
+  APP_LOG(APP_LOG_LEVEL_ERROR, "Message dropped. Reason: %d", (int)reason);
+}
+
+static void outbox_sent_callback(DictionaryIterator *iter, void *context) {
+  // The message just sent has been successfully delivered
+
+}
+
+static void outbox_failed_callback(DictionaryIterator *iter,
+                                      AppMessageResult reason, void *context) {
+  // The message just sent failed to be delivered
+  APP_LOG(APP_LOG_LEVEL_ERROR, "Message send failed. Reason: %d", (int)reason);
 }
 
 void init(){
   //Register AppMessage events
-  app_message_register_inbox_received(in_received_handler);           
+  app_message_register_inbox_received(inbox_received_callback);
+  app_message_register_inbox_dropped(inbox_dropped_callback);
+  app_message_register_outbox_sent(outbox_sent_callback);
+  app_message_register_outbox_failed(outbox_failed_callback);
+       
   app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());    //Large input and output buffer sizes
 }
 
