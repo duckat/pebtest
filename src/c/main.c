@@ -108,7 +108,7 @@ void start_main_window() {
 
 static void inbox_received_callback(DictionaryIterator *iter, void *context) 
 {
-    Tuple *t = dict_find(iter);
+    Tuple *t = dict_read_first(iter);
     if (t) {
       //
     }

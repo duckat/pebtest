@@ -11,15 +11,15 @@
         "resources": {
             "media": [
                 {
-                    "file": "images/icon25x25",
-                    "menuIcon": true,
-                    "name": "IMAGE_ICON",
+                    "file": "images/samplemap",
+                    "name": "IMAGE_SAMPLEMAP",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
                 {
-                    "file": "images/samplemap",
-                    "name": "IMAGE_SAMPLEMAP",
+                    "file": "images/icon25x25",
+                    "menuIcon": true,
+                    "name": "IMAGE_ICON",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
