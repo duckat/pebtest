@@ -2,24 +2,29 @@
     "author": "anthonysunghoonkim@gmail.com",
     "dependencies": {},
     "keywords": [],
-    "name": "bnkr",
+    "name": "test1",
     "pebble": {
-        "displayName": "BNKR",
+        "displayName": "test1",
         "enableMultiJS": true,
         "messageKeys": [],
         "projectType": "native",
         "resources": {
             "media": [
                 {
-                    "file": "images/icon25x25",
-                    "menuIcon": true,
-                    "name": "IMAGE_ICON",
+                    "file": "images/samplemap",
+                    "name": "IMAGE_SAMPLEMAP",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
                 {
-                    "file": "fonts/font_forward10",
-                    "name": "FONT_FORWARD10",
+                    "file": "images/background(MAINBG)",
+                    "name": "IMAGE_MAINBG",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "fonts/goodtimes16",
+                    "name": "FONT_GOODTIMES_16",
                     "targetPlatforms": null,
                     "type": "font"
                 },
@@ -30,37 +35,20 @@
                     "type": "font"
                 },
                 {
-                    "file": "images/background(MAINBG)",
-                    "name": "IMAGE_MAINBG",
+                    "file": "fonts/font_forward10",
+                    "name": "FONT_FORWARD10",
                     "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/samplemap",
-                    "name": "IMAGE_SAMPLEMAP",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
+                    "type": "font"
                 },
                 {
                     "file": "fonts/expressway16",
                     "name": "FONT_EXPRESSWAY16",
                     "targetPlatforms": null,
                     "type": "font"
-                },
-                {
-                    "file": "fonts/goodtimes16",
-                    "name": "FONT_GOODTIMES_16",
-                    "targetPlatforms": null,
-                    "type": "font"
                 }
             ]
         },
         "sdkVersion": "3",
-        "targetPlatforms": [
-            "aplite",
-            "basalt",
-            "chalk"
-        ],
         "uuid": "140862c0-5447-4504-a65c-b82c01736218",
         "watchapp": {
             "watchface": false
