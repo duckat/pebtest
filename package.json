@@ -11,6 +11,24 @@
         "resources": {
             "media": [
                 {
+                    "file": "fonts/font_forward10",
+                    "name": "FONT_FORWARD10",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/font_forward12",
+                    "name": "FONT_FORWARD12",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
+                    "file": "images/background(MAINBG)",
+                    "name": "IMAGE_MAINBG",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
                     "file": "images/samplemap",
                     "name": "IMAGE_SAMPLEMAP",
                     "targetPlatforms": null,

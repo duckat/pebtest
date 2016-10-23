@@ -8,7 +8,10 @@ void balance_window_load(Window *window){
   Layer *window_layer = window_get_root_layer(window);
   
   balanceTitleText = text_layer_create(GRect(0, 0, 144, 168));
-  text_layer_set_text(balanceTitleText, "Balance\n\n\n\n\n$0.00");
+  text_layer_set_text(balanceTitleText, "\n\nBalance\n\n\n\n\n$39.18");
+  text_layer_set_font(balanceTitleText, fonts_load_custom_font
+     (resource_get_handle(RESOURCE_ID_FONT_FORWARD12)));
+  text_layer_set_background_color(balanceTitleText, GColorMintGreen);
   text_layer_set_text_alignment(balanceTitleText, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(balanceTitleText));
 }
