@@ -26,7 +26,9 @@ void atm_window_load(Window *window){
   layer_add_child(window_layer, text_layer_get_layer(atmTitleText));
 }
 void atm_window_unload(Window *window){
-
+  text_layer_destroy(atmTitleText);
+  gbitmap_destroy(bitmap);
+  bitmap_layer_destroy(bitmap_layer);
 }
 void atm_window_create(){
   atmWindow = window_create();
@@ -37,9 +39,7 @@ void atm_window_create(){
 }
 
 void atm_window_destroy(){
-  text_layer_destroy(atmTitleText);
-  gbitmap_destroy(bitmap);
-  bitmap_layer_destroy(bitmap_layer);
+  atm_window_unload(atmWindow);
   window_destroy(atmWindow);
 }
 

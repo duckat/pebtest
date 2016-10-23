@@ -40,6 +40,7 @@ void splash_window_create(){
 }
 
 void splash_window_destroy(){
+  splash_window_unload(splashWindow);
   window_destroy(splashWindow);
 }
 

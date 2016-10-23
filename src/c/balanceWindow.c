@@ -13,7 +13,7 @@ void balance_window_load(Window *window){
   layer_add_child(window_layer, text_layer_get_layer(balanceTitleText));
 }
 void balance_window_unload(Window *window){
-
+  text_layer_destroy(balanceTitleText);
 }
 void balance_window_create(){
   balanceWindow = window_create();
@@ -24,6 +24,7 @@ void balance_window_create(){
 }
 
 void balance_window_destroy(){
+  balance_window_unload(balanceWindow);
   window_destroy(balanceWindow);
 }
 
