@@ -5,12 +5,12 @@
 #include "atmWindow.h"
 
 int logged_in = true;
-
-
 // void launch_main_window(void *data){
 
 // }
+void init(){
 
+}
 void launch_balance_window(void *data){
   balance_window_create();
   window_stack_push(balance_window_get_window(), true);
@@ -59,6 +59,7 @@ void check_login(){
 
 int main(){
   //app_timer_register(1500, launch_main_window, NULL);
+  init();
   check_login();
 
   app_event_loop();

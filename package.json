@@ -9,7 +9,26 @@
         "messageKeys": [],
         "projectType": "native",
         "resources": {
-            "media": []
+            "media": [
+                {
+                    "file": "images/samplemap",
+                    "name": "IMAGE_SAMPLEMAP",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "fonts/expressway16",
+                    "name": "FONT_EXPRESSWAY16",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/goodtimes16",
+                    "name": "FONT_GOODTIMES_16",
+                    "targetPlatforms": null,
+                    "type": "font"
+                }
+            ]
         },
         "sdkVersion": "3",
         "uuid": "140862c0-5447-4504-a65c-b82c01736218",
