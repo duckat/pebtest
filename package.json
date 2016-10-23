@@ -2,14 +2,21 @@
     "author": "anthonysunghoonkim@gmail.com",
     "dependencies": {},
     "keywords": [],
-    "name": "test1",
+    "name": "bnkr",
     "pebble": {
-        "displayName": "test1",
+        "displayName": "BNKR",
         "enableMultiJS": true,
         "messageKeys": [],
         "projectType": "native",
         "resources": {
             "media": [
+                {
+                    "file": "images/icon25x25",
+                    "menuIcon": true,
+                    "name": "IMAGE_ICON",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
                 {
                     "file": "images/samplemap",
                     "name": "IMAGE_SAMPLEMAP",
@@ -49,6 +56,11 @@
             ]
         },
         "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk"
+        ],
         "uuid": "140862c0-5447-4504-a65c-b82c01736218",
         "watchapp": {
             "watchface": false

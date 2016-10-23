@@ -53,12 +53,6 @@ void start_main_window() {
     window_stack_push(main_window_get_window(), true);
 }
 
-void init(){
-  //Register AppMessage events
-  app_message_register_inbox_received(in_received_handler);           
-  app_message_open(512, 512);    //Large input and output buffer sizes
-}
-
 static void in_received_handler(DictionaryIterator *iter, void *context) 
 {
     Tuple *t = dict_read_first(iter);
@@ -67,6 +61,13 @@ static void in_received_handler(DictionaryIterator *iter, void *context)
         start_main_window();
     }
 }
+
+void init(){
+  //Register AppMessage events
+  app_message_register_inbox_received(in_received_handler);           
+  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());    //Large input and output buffer sizes
+}
+
 
 int main(){
   //app_timer_register(1500, launch_main_window, NULL);
