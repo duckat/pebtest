@@ -8,8 +8,19 @@ int logged_in = true;
 // void launch_main_window(void *data){
 
 // }
-void init(){
-
+static void init(){
+  static PebbleAppHandlers s_handlers = {
+    .messaging_info = {
+      .buffer_sizes = {
+        .inbound = 64,
+        .outbound = 16
+      }
+      .default_callbacks.callbacks{
+        .out_sent = my_out_sent_handler,
+        
+      }
+    }
+  }
 }
 void launch_balance_window(void *data){
   balance_window_create();
